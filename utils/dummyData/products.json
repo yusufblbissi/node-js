@@ -1,0 +1,79 @@
+[
+  {
+    "title": "Huawei P30 Pro",
+    "slug": "huawei-p30-pro",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat semper enim, ac scelerisque sapien viverra id.",
+    "quantity": 10,
+    "sold": 5,
+    "price": 799.99,
+    "priceAfterDiscount": 699.99,
+    "colors": [
+      "Midnight Black",
+      "Breathing Crystal",
+      "Aurora",
+      "Amber Sunrise"
+    ],
+    "imageCover": "https://example.com/images/huawei-p30-pro.jpg",
+    "images": [
+      "https://example.com/images/huawei-p30-pro-back.jpg",
+      "https://example.com/images/huawei-p30-pro-side.jpg"
+    ],
+    "category": "644ab24c660204a2284dfc5f",
+    "subCategories": [],
+    "ratingsQuantity": 8
+  },
+  {
+    "title": "Samsung Galaxy S21",
+    "slug": "samsung-galaxy-s21",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat semper enim, ac scelerisque sapien viverra id.",
+    "quantity": 5,
+    "sold": 3,
+    "price": 1199.99,
+    "priceAfterDiscount": 1099.99,
+    "colors": ["Phantom Black", "Phantom Silver", "Phantom Violet"],
+    "imageCover": "https://example.com/images/samsung-galaxy-s21.jpg",
+    "images": [
+      "https://example.com/images/samsung-galaxy-s21-back.jpg",
+      "https://example.com/images/samsung-galaxy-s21-side.jpg"
+    ],
+    "category": "644ab24c660204a2284dfc5f",
+    "subCategories": [],
+    "ratingsQuantity": 4
+  },
+  {
+    "title": "Dell Inspiron 15 3000",
+    "slug": "dell-inspiron-15-3000",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada magna eget nisl bibendum, non sollicitudin quam molestie. ",
+    "quantity": 5,
+    "sold": 0,
+    "price": 800,
+    "priceAfterDiscount": 750,
+    "colors": ["black", "silver"],
+    "imageCover": "https://example.com/images/product-2.jpg",
+    "images": [
+      "https://example.com/images/product-2-1.jpg",
+      "https://example.com/images/product-2-2.jpg"
+    ],
+    "category": "644506f9797e3a2f57112cc7",
+    "subCategories": [],
+    "ratingsQuantiry": 0
+  },
+  {
+    "title": "Samsung Galaxy S20",
+    "slug": "samsung-galaxy-s20",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada magna eget nisl bibendum, non sollicitudin quam molestie. ",
+    "quantity": 8,
+    "sold": 0,
+    "price": 1100,
+    "priceAfterDiscount": 1050,
+    "colors": ["gray", "pink"],
+    "imageCover": "https://example.com/images/product-3.jpg",
+    "images": [
+      "https://example.com/images/product-3-1.jpg",
+      "https://example.com/images/product-3-2.jpg"
+    ],
+    "category": "644506f9797e3a2f57112cc7",
+    "subCategories": [],
+    "ratingsQuantiry": 0
+  }
+]
