@@ -7,15 +7,10 @@ dotenv.config({ path: "config.env" });
 
 // connect database
 import dbConnection from "./config/database.js";
-import categoryRoute from "./routes/categoryRoute.js";
-import subSategoryRoute from "./routes/subCategoryRoute.js";
-import brandRoute from "./routes/brandRoute.js";
-import productRoute from "./routes/productRoute.js";
-import userRoute from "./routes/userRoute.js";
-import authRoute from "./routes/authRoute.js";
+
 
 // Routes
-const mountRoutes = require('./routes');
+import {mountRoutes} from "./routes/index.js";
 
 //secure
 import rateLimit from 'express-rate-limit'
