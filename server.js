@@ -14,6 +14,8 @@ import productRoute from "./routes/productRoute.js";
 import userRoute from "./routes/userRoute.js";
 import authRoute from "./routes/authRoute.js";
 
+// Routes
+const mountRoutes = require('./routes');
 
 //secure
 import rateLimit from 'express-rate-limit'
@@ -54,14 +56,8 @@ app.use(xss())
 app.use('/api',limiter)
 
 
-//Routes
-// Use the category route middleware
-app.use("/api/v1/categories", categoryRoute);
-app.use("/api/v1/subcategories", subSategoryRoute);
-app.use("/api/v1/brands", brandRoute);
-app.use("/api/v1/products", productRoute);
-app.use("/api/v1/users", userRoute);
-app.use("/api/v1/auth", authRoute);
+// Mont Routes
+mountRoutes(app);
 
 app.all("*", (req, res, next) => {
   next(new ApiError(`Con't find this route ${req.originalUrl}`, 400));
