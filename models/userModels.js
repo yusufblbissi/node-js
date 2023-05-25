@@ -26,6 +26,7 @@ const userSchema = new mongoose.Schema(
       required: [true, "Password is required"],
       minlength: [8, "Too short password"],
     },
+    passwordChangedAt: { type: Date },
     role: {
       type: String,
       enum: ["user", "admin"],
@@ -43,20 +44,18 @@ userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
   this.password = await bcrypt.hash(this.password, 12);
   next();
-
 });
 const User = mongoose.model("User", userSchema);
 export default User;
 
-
-  // const user = this;
-  // if(user.isModified('password')){
-  //   bcrypt.genSalt(10, (err, salt) => {
-  //     bcrypt.hash(user.password, salt, (err, hash) => {
-  //       user.password = hash;
-  //       next();
-  //     });
-  //   });
-  // }else{
-  //   next();
-  // }
+// const user = this;
+// if(user.isModified('password')){
+//   bcrypt.genSalt(10, (err, salt) => {
+//     bcrypt.hash(user.password, salt, (err, hash) => {
+//       user.password = hash;
+//       next();
+//     });
+//   });
+// }else{
+//   next();
+// }

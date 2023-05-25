@@ -13,12 +13,17 @@ import brandRoute from "./routes/brandRoute.js";
 import productRoute from "./routes/productRoute.js";
 import userRoute from "./routes/userRoute.js";
 import authRoute from "./routes/authRoute.js";
+
+
+//secure
+import rateLimit from 'express-rate-limit'
+import hpp from "hpp"
 //express app
 const app = express();
 dbConnection();
 
 // Middlewares
-app.use(express.json());
+app.use(express.json({limit: '20kb'}));
 
 //Development Mode
 if (process.env.NODE_ENV == "development") {
@@ -27,6 +32,21 @@ if (process.env.NODE_ENV == "development") {
 } else {
   console.log(process.env.NODE_ENV);
 }
+//rate limit
+
+const limiter = rateLimit({
+	windowMs: 15 * 60 * 1000, // 15 minutes
+	max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+	message:
+		'Too many accounts created from this IP, please try again after an hour',
+})
+
+// the wishlist for accept duplicate params
+app.use(hpp({whitelist:['price']}))
+
+// Apply the rate limiting middleware to all requests
+app.use('/api',limiter)
+
 
 //Routes
 // Use the category route middleware

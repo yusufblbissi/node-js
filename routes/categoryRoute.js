@@ -6,22 +6,27 @@ import {
   updateCategory,
   deletecategory,
 } from "../controller/categoryController.js";
-import { getCategoryValidator,updateCategoryValidator,deleteCategoryValidator } from "../utils/validator/validatorCategory.js";
+import {
+  getCategoryValidator,
+  updateCategoryValidator,
+  deleteCategoryValidator,
+} from "../utils/validator/validatorCategory.js";
 import bodyParser from "body-parser";
-import subCategoriesRoute from './subCategoryRoute.js'
+import subCategoriesRoute from "./subCategoryRoute.js";
+import {protect} from "../controller/authController.js";
+
 //nested route
 const router = express.Router();
 router.use(bodyParser.json());
 //nested route
-router.use("/:categoryId/subcategories",subCategoriesRoute)
+router.use("/:categoryId/subcategories", subCategoriesRoute);
+
 //get and post on same path
-router.route("/").get(getCategories).post(createCategory);
+router.route("/").get(getCategories).post(protect, createCategory);
 router
   .route("/:id")
-  .get(getCategoryValidator,
-    getCategory
-  )
-  .put(updateCategoryValidator,updateCategory)
-  .delete(deleteCategoryValidator,deletecategory);
+  .get(getCategoryValidator, getCategory)
+  .put(updateCategoryValidator, updateCategory)
+  .delete(deleteCategoryValidator, deletecategory);
 
 export default router;
