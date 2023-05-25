@@ -2,6 +2,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import asyncHandler from "express-async-handler";
 import ApiError from "../utils/apiError.js";
+import {sanitizeUser} from "../utils/sanitizeData.js";
 import User from "../models/userModels.js";
 
 const createToken = (payload) => {
@@ -43,7 +44,7 @@ export const login = asyncHandler(async (req, res, next) => {
   //   expiresIn: process.env.JWT_EXPIRES_IN,
   // });
   const token = createToken(user._id);
-  res.status(200).json({ data: user, token });
+  res.status(200).json({ data: sanitizeUser(user), token });
 });
 
 export const protect = asyncHandler(async (req, res, next) => {

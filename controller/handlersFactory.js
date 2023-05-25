@@ -44,6 +44,7 @@ export const getOne = (Model) => {
 };
 export const getAll = (Model,ModelName = '') => {
   return asyncHandler(async (req, res) => {
+    console.log(req.params.keyword);
     let filter = {};
     if (req.filterObj) {
       filter = req.filterObj;

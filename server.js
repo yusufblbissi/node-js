@@ -18,6 +18,8 @@ import authRoute from "./routes/authRoute.js";
 //secure
 import rateLimit from 'express-rate-limit'
 import hpp from "hpp"
+import ExpressMongoSanitize from "express-mongo-sanitize";
+import xss from "xss-clean"
 //express app
 const app = express();
 dbConnection();
@@ -41,8 +43,12 @@ const limiter = rateLimit({
 		'Too many accounts created from this IP, please try again after an hour',
 })
 
-// the wishlist for accept duplicate params
+// wishlist for accept duplicate params
 app.use(hpp({whitelist:['price']}))
+
+// sanitize data
+app.use(ExpressMongoSanitize())
+app.use(xss())
 
 // Apply the rate limiting middleware to all requests
 app.use('/api',limiter)
