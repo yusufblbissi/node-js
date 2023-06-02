@@ -3,11 +3,12 @@ import dotenv from "dotenv";
 import morgan from "morgan";
 import ApiError from "./utils/apiError.js";
 import globalError from "./middlewares/errorMiddleware.js";
+
+// You should use the file config before connect to db
 dotenv.config({ path: "config.env" });
 
 // connect database
 import dbConnection from "./config/database.js";
-
 
 // Routes
 import {mountRoutes} from "./routes/index.js";
@@ -43,7 +44,7 @@ const limiter = rateLimit({
 // wishlist for accept duplicate params
 app.use(hpp({whitelist:['price']}))
 
-// sanitize data
+// sanitize data for attack hacker
 app.use(ExpressMongoSanitize())
 app.use(xss())
 
@@ -51,14 +52,14 @@ app.use(xss())
 app.use('/api',limiter)
 
 
-// Mont Routes
+// Mont Routes (All Routes)
 mountRoutes(app);
 
 app.all("*", (req, res, next) => {
   next(new ApiError(`Con't find this route ${req.originalUrl}`, 400));
 });
 
-//global error handling middleware
+// Global error handling middleware
 app.use(globalError);
 
 const PORT = process.env.PORT || 8000;
@@ -66,7 +67,7 @@ const server = app.listen(PORT, () => {
   console.log("app running");
 });
 
-//unhandledRejection out site express
+// UnhandledRejection out site express
 process.on("unhandledRejection", (err) => {
   console.error(`unhandledRejection Error:${err.name} | ${err.message}`);
   server.close(() => {
