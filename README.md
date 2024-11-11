@@ -5,12 +5,6 @@ This project is a backend API for an e-commerce application, built using Node.js
 ## Table of Contents
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Project Structure](#project-structure)
-- [Installation](#installation)
-- [Environment Variables](#environment-variables)
-- [Usage](#usage)
-- [API Endpoints](#api-endpoints)
-- [License](#license)
 
 ## Features
 - **User Authentication**: Secure user registration and login with JWT-based authentication.
